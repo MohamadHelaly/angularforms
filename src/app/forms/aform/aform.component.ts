@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AformComponent implements OnInit {
 
+  topics: string[] = ['Angular', 'React', 'Vue'];
   constructor() { }
 
   ngOnInit(): void {
