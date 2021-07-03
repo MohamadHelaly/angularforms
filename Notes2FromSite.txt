@@ -1,1 +1,17 @@
 this file created by site to test pull command
+
++ from local device 
+  ===>  git pull origin
+
+
+
+----------------------------------------
+----           do u r changes        ---
+----------------------------------------
+
+
+01.    git add *
+
+02.    git commit -m "your changes desc title"
+
+03.    git push origin master
