@@ -1,6 +1,6 @@
 <h1>Form Elements</h1>
 
-<form #userForm="ngForm">
+<form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
 
 
     <!-- [FORM] userForm.value = {{ userForm.value | json }}
@@ -9,8 +9,19 @@
 
     [Variable] userModel = {{ userModel | json }}
 
+    <hr>
+   
+    Is Form.valid = {{ userForm.form.valid }}
+
+
     <br>
     <br> -->
+
+
+    <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+    </div>
+    
 
     <div class="form-group">
         <label>Name</label>
@@ -94,6 +105,6 @@
         </div>
     </div> -->
 
-    <button class="btn btn-primary mt-3 btn-block" type="submit">Submit Form</button>
+    <button [disabled]="userForm.form.invalid || topicHasError" class="btn btn-primary mt-3 btn-block" type="submit">Submit Form</button>
 
 </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollmentService } from 'src/app/services/enrollment.service';
 import { User } from 'src/app/user';
 
 
@@ -15,7 +16,9 @@ export class AformComponent implements OnInit {
 
   topicHasError= true;
 
-  constructor() { }
+  errorMsg = '';
+
+  constructor(private _service:EnrollmentService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +28,15 @@ export class AformComponent implements OnInit {
       this.topicHasError = true;
     else
       this.topicHasError = false;
-    
+  }
+
+  onSubmit(){
+    //console.log(this.userModel);
+    this._service.enrollUser(this.userModel)
+                  .subscribe(
+                    data => console.log("Success", data),
+                    error => this.errorMsg = error.statusText
+                  );
   }
 
 }
