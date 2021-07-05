@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/Models/employee';
 import { EmpcrudService } from 'src/app/services/empcrud.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-crudfrom',
@@ -14,10 +15,14 @@ export class CRUDfromComponent implements OnInit {
   employee:Employee = new Employee();
   lstEmps:Employee[] = [];
 
-  constructor(private service:EmpcrudService) { }
+  constructor(private service:EmpcrudService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllEmp();
+
+
+    
+
   }
 
   onSubmit(){
@@ -31,14 +36,23 @@ export class CRUDfromComponent implements OnInit {
       error => this.errorMsg = error.statusText, 
     );
 
+    this.toastr.success('New Employee Added Successfully', 'Adding Employee', {
+      timeOut: 3000,
+    });
+
     }else{
       //update 
       this.service.update(this.employee).subscribe(
-        data => this.employee = data,
+        data => {
+          //this.employee = data
+          this.getAllEmp();
+        },
         error => this.errorMsg = error.statusText,
         );
     }
-
+    this.toastr.success('Update Employee Successfully', 'Update Employee', {
+      timeOut: 3000,
+    });
 
   }
 
@@ -48,15 +62,20 @@ export class CRUDfromComponent implements OnInit {
         data => this.lstEmps =  data,
         error => this.errorMsg = error.statusText,
         );
+
+        this.toastr.success('data loaded successfully', 'Loading Data', {
+          timeOut: 3000,
+        });
   }
 
   Edit(emp:Employee){
-    this.employee = emp;
+    this.employee = Object.assign({}, emp);
     this.operationTitle = 'Update';
   }
 
   Add(){
    this.employee = new Employee();
+   this.operationTitle = 'SAVE'
   }
 
   Delete(id:number){
