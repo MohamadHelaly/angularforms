@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AformComponent } from './forms/aform/aform.component';
+import { CRUDfromComponent } from './forms/crudfrom/crudfrom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AformComponent
+    AformComponent,
+    CRUDfromComponent
   ],
   imports: [
     BrowserModule,
