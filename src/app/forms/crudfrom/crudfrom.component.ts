@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/Models/employee';
 import { EmpcrudService } from 'src/app/services/empcrud.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-crudfrom',
@@ -9,6 +10,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./crudfrom.component.css']
 })
 export class CRUDfromComponent implements OnInit {
+
+
+
+//https://www.youtube.com/watch?v=S5dzfuh3t8U&t=2909s
+
 
   operationTitle:string = 'Save';
   errorMsg:string='';
@@ -23,6 +29,11 @@ export class CRUDfromComponent implements OnInit {
 
     
 
+  }
+
+  resetForm(from:NgForm){
+    alert('still not working !!');
+    from.reset;
   }
 
   onSubmit(){
@@ -78,18 +89,22 @@ export class CRUDfromComponent implements OnInit {
    this.operationTitle = 'SAVE'
   }
 
-  Delete(id:number){
+  Delete(id: number) {
     // const empToRemove = this.lstEmps.find(obj => obj.id === id);
     // console.log(empToRemove);
 
-    this.service.Delete(id).subscribe(
-      () => (this.lstEmps = this.lstEmps.filter( (obj) => obj.id !== id)),
-      error => this.errorMsg = error.statusText
-    );
+    if (confirm("Are you sure to delete?")) {
+      this.service.Delete(id).subscribe(
+        () => (this.lstEmps = this.lstEmps.filter((obj) => obj.id !== id)),
+        error => this.errorMsg = error.statusText
+      );
 
-    //this.taskService.deleteTask(task).subscribe(()=> (this.tasks = this.tasks.filter((t)=> t.id !== task.id))  );
+      //this.taskService.deleteTask(task).subscribe(()=> (this.tasks = this.tasks.filter((t)=> t.id !== task.id))  );
 
-    console.log(this.lstEmps);
+      console.log(this.lstEmps);
+    }
+
+    
   }
 
 }

@@ -1,0 +1,28 @@
+<p>{{title}}</p>
+
+<button class="btn btn-primary">aaa</button>
+
+<form #frm="ngForm">
+
+    <div class="form-group">
+        <label>Id</label>
+        <input type="text" name="id" #id="ngModel" [(ngModel)]="emp.id">
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="emp.name">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" #email="ngModel" [(ngModel)]="emp.email">
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" name="phone" #phone="ngModel" [(ngModel)]="emp.phone">
+    </div>
+
+    <div class="form-group">
+        <button type="submit"> SAVE </button>
+    </div>
+
+</form>

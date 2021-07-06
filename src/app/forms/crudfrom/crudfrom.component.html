@@ -2,6 +2,13 @@
 
 <div class="row">
     <div class="col-md-6">
+                <br>
+     <a href="https://www.youtube.com/watch?v=S5dzfuh3t8U&t=2909s">https://www.youtube.com/watch?v=S5dzfuh3t8U&t=2909s</a> 
+     <br>  
+     <a href="https://www.youtube.com/watch?v=jYvkMv7LzCw">https://www.youtube.com/watch?v=jYvkMv7LzCw</a>   
+     <br>
+     <br>
+     <br>
         <div class="d-grid gap-2 m-3">
             <button class="btn btn-primary btn-lg" (click)="Add()">Add New</button>
         </div>
@@ -37,6 +44,10 @@
                 <button [disabled]="!empForm.form.valid" class="btn btn-primary btn-block  btn-lg " type="submit">{{operationTitle}}</button>
             </div>
 
+
+
+            <button (click)="resetForm(empForm)">RESET</button>
+
         </form>  
 
     </div>
@@ -66,6 +77,15 @@
             </tbody>
         </table>
 
+   
+   
+   
+   
+   
     </div>
+
+
+
+
 </div>
 

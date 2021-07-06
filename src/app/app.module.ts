@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AformComponent } from './forms/aform/aform.component';
 import { CRUDfromComponent } from './forms/crudfrom/crudfrom.component';
+import { EmployeelistComponent } from './pages/employeelist/employeelist.component';
+import { EmployeedetailsComponent } from './pages/employeedetails/employeedetails.component';
 
 
 
@@ -18,7 +20,9 @@ import { CRUDfromComponent } from './forms/crudfrom/crudfrom.component';
   declarations: [
     AppComponent,
     AformComponent,
-    CRUDfromComponent
+    CRUDfromComponent,
+    EmployeelistComponent,
+    EmployeedetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<h1>Employees List  </h1>
+
+<br>
+<a class="btn btn-primary" routerLink="../employees/add/0"> Add New Employee</a>
+<br>
+<br>
+<br>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+
+    
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col"></th>   
+    
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employee2List">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.phone }}</td>
+            <td> <a routerLink="../employees/edit/{{ emp.id }}"> Edit </a></td>
+        </tr>
+    </tbody>
+</table>
